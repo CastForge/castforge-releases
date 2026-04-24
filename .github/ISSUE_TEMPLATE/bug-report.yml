@@ -1,0 +1,85 @@
+name: Bug report
+description: Something in CastForge crashed, froze, or behaved unexpectedly.
+title: "[bug] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug. Fill out everything you can — the more detail, the faster the fix.
+
+        **If the app is unrecoverable**, click the "Download debug dump" button in the Settings tab first (choose the redacted option), then attach the resulting `.txt` to this issue after filing.
+
+  - type: input
+    id: version
+    attributes:
+      label: CastForge version
+      description: Find it in the top-left pill of the app window, or in `Help → About`.
+      placeholder: "e.g. v2.2.19"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows 11
+        - Windows 10
+        - Other (describe in the details section)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: How bad is it?
+      options:
+        - Crash — the app quit unexpectedly or froze
+        - Broken feature — something doesn't work but I can keep using the app
+        - Minor — cosmetic, confusing, or a small glitch
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug in your own words. If you can, include the exact steps that triggered it.
+      placeholder: |
+        1. Opened CastForge
+        2. Clicked "Connect Twitch"
+        3. Browser window opened, I logged in
+        4. Got an error toast: "..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect instead?
+      placeholder: "e.g. Twitch should have connected and started reading chat."
+
+  - type: textarea
+    id: platforms
+    attributes:
+      label: Which platforms were connected when the bug happened?
+      placeholder: "e.g. Twitch + YouTube + Kick, or 'none, I was still in the wizard'"
+
+  - type: textarea
+    id: debug-dump
+    attributes:
+      label: Debug dump
+      description: |
+        If you clicked "Download debug dump" (the redacted version is fine), drag the `.txt` file into this box to attach it.
+        Or paste the last few lines of the file here.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Checklist
+      options:
+        - label: I've confirmed this isn't already reported in the open issues
+          required: true
+        - label: I'm running the latest CastForge release I have access to
+          required: true
